@@ -1,7 +1,9 @@
 import React, { useState, useEffect} from "react";
 import './Feed.css';
 import TweetBox from "./TweetBox";
+import db from "./firebase";
 import Post from "./Post";
+
 // import image1 from "./assets/images/image.gif";
 // import girlavatar from "./assets/avatar/678130.png";
 // import giphy from "./assets/images/giphy.gif";
@@ -9,16 +11,13 @@ import Post from "./Post";
 // import santa3 from "./assets/images/santa3.gif";
 // import profile from "./assets/avatar/profile.webp";
 
-import db from "./firebase";
-
 
 function Feed(){
 
     const[posts, setPosts] = useState([]);
 
     useEffect(() => {
-        db.collection("posts").onSnapshot(snapshot => (
-            //setPosts(snapshot.nb8d5OL7CVjpkN4SVG2d.map(doc => doc.data()))
+         db.collection("posts").onSnapshot(snapshot => (
             setPosts(snapshot.docs.map(doc => doc.data()))
         ))
     }, []);
@@ -46,8 +45,6 @@ return (
         image={post.image}
         />
         ))}
-         console.log(db);
-
 
         {/* <Post 
         DisplayName="Jyoti Raghav"

@@ -1,0 +1,48 @@
+.feed{
+    flex:0.4;
+    border-right: 50px solid var(--twitter-background);
+    min-width: fit-content;
+    overflow: scroll;
+    padding-left: 100px;
+    position: relative;
+}
+
+/* Hide the scrollbar but the functionality will be there */
+.feed::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide the scrollbar but the functionality will be there */
+.feed {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.feed__header {
+    position: sticky;
+    top:0;
+    background-color: white;
+    z-index: 100;
+    border: 1px solid var(--twitter-background0);
+    padding: 15px 20px;
+}
+
+.feed__header > h2 {
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.feed__header2 >h2 {
+    margin-left: 200px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 0;
+    padding-top: 10px;
+
+    
+}
+.tweetbox > h3 {
+    font-size: 20px;
+    font-weight: 800;
+}

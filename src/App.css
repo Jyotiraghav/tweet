@@ -1,0 +1,23 @@
+body {
+    --twitter-color: black;
+    --twitter-background:white;
+}
+
+
+.app {
+    display: flex;
+    height:100vh;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+
+}
+
+.feed {
+    overflow-y: scroll;
+    position: relative;
+    overflow: visible;
+    scroll-behavior: auto;
+    font-size: large;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { forwardRef } from "react";
 import "./Post.css" ;
 import { Avatar } from "@mui/material";
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
@@ -6,18 +7,20 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import PublishIcon from '@mui/icons-material/Publish';
+import FlipMove from "react-flip-move";
 
-function Post({
-    DisplayName,
+const Post = forwardRef(
+    ({
+    displayName,
     username,
     verified,
     text,
-    image,
-    avatar
-}){
+    images,
+    avatar }, ref) => {
 
     return (
-        <div className="post">
+        <FlipMove>
+        <div className="post" ref={ref}>
             <div className="post__avator">
             <Avatar src={avatar}/>
             </div>
@@ -25,10 +28,10 @@ function Post({
                 <div className="post__header">
                     <div className="post__headerText">
                         <h3>
-                            {DisplayName}{""}
+                            {displayName}{""}
                             <span className="post__headerSpecial"> 
                                 {verified && <VerifiedUserIcon className= "post__badge">
-                                    </VerifiedUserIcon> }@{username}
+                                    </VerifiedUserIcon> }{username}
                             </span>
                         </h3>
                     </div>
@@ -37,7 +40,7 @@ function Post({
                     </div>
                 </div>
                 
-                <img src={image}
+                <img src={images}
                 alt="Sample"></img>
 
                 <div className="post__footer">
@@ -49,7 +52,8 @@ function Post({
             </div>
 
         </div>
-    )
-}
+        </FlipMove>
+    );
+});
 
 export default Post;
